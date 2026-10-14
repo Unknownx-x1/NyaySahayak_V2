@@ -70,7 +70,13 @@ jobs:
           REDIS_URL: redis://localhost:6379/0
           ENVIRONMENT: test
         run: |
-          python -m pytest apps/api/tests -v
+          python -m pytest -v 2>&1 | tee /tmp/pytest.log || {
+            echo "### Pytest Failure Log" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            cat /tmp/pytest.log >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            exit 1
+          }
 
   frontend-checks:
     name: Frontend Lint & Build
