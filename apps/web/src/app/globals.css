@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF7F2;
+  --foreground: #121417;
+  --paper-canvas: #FAF7F2;
+  --paper-surface: #FFFFFF;
+  --paper-border: #E3DCD0;
+  --vermilion: #B83A24;
+}
+
+body {
+  background-color: var(--paper-canvas);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Restrained vermilion selection color */
+::selection {
+  background-color: #F9EDE9;
+  color: #B83A24;
+}
+
+/* Archival parchment scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E3DCD0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B83A24;
+}
